@@ -16,24 +16,29 @@ chai.use(chaiEnzyme())
 // own props (e.g. `submitting`) and make sure our form renders as we expect.
 
 describe("ContactFormComponent", () => {
-	let onSave = null
 	let subject = null
-	let onSaveResponse = Promise.resolve()
-	let resetForm = sinon.spy()
-	let submitting = false
-	const buildSubject = () => {
+	let submitting, touched, error, resetForm, onSave, onSaveResponse
+	beforeEach(() => {
+		submitting = false
+		touched = false
+		error = null
+		resetForm = sinon.spy()
 		onSave = sinon.stub()
 		onSave.returns(Promise.resolve())
+		onSaveResponse = Promise.resolve()
+	})
+	const buildSubject = () => {
 		const props = {
 			onSave,
 			submitting: submitting,
 			// The real redux form has many properties for each field,
 			// including onChange and onBlur handlers. We only need to provide
-			// the ones we care about, which for these tests are basically
-			// none.
+			// the ones that will change the rendered output.
 			fields: {
 				firstName: {
-					value: ''
+					value: '',
+					touched: touched,
+					error: error
 				}
 			},
 			handleSubmit: fn => fn,
@@ -61,6 +66,20 @@ describe("ContactFormComponent", () => {
 			subject = buildSubject()
 			const icon = subject.find('button[type="submit"]').find('i')
 			expect(icon).to.have.className('glyphicon-refresh glyphicon-spin')
+		})
+	})
+
+	// Again, we show that what we render is based on the props we send it. If
+	// we set the props to include an error state, our form should render that
+	// fact.
+	context("when in an error state", () => {
+		it("renders an error message for the input", () => {
+			touched = true
+			error = "Required"
+			subject = buildSubject()
+			const firstNameHelpBlock = subject.find('.help-block')
+			expect(firstNameHelpBlock).to.exist
+			expect(firstNameHelpBlock.text()).to.equal('Required')
 		})
 	})
 })
