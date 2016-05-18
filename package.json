@@ -1,0 +1,39 @@
+{
+  "name": "redux-form-tests",
+  "version": "0.0.1",
+  "description": "Showing some unit and integration tests for redux-form",
+  "keywords": [],
+  "scripts": {
+    "webpack": "node_modules/.bin/webpack",
+    "test": "node_modules/.bin/mocha -w --compilers js:babel-core/register tests/*"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.4.2",
+    "enzyme": "^2.3.0",
+    "jsdom": "^9.1.0",
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^15.0.2",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.13.0"
+  },
+  "dependencies": {
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-form": "^5.2.3"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tylercollier/redux-form-test"
+  },
+  "author": "tylercollier",
+  "license": "MIT"
+}
