@@ -14,7 +14,7 @@ chai.use(chaiEnzyme())
 // In this file we're doing an integration test. Thus we need to hook up our
 // form component to Redux and Redux-Form. To do that, we need to create the
 // simplest redux store possible that will work with Redux-Form.
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer, getValues } from 'redux-form'
 import { createStore, combineReducers } from 'redux'
 
 // To test the entire component, we're going to use Enzyme's `mount` method,
@@ -59,6 +59,7 @@ describe("ContactFormContainer", () => {
 		// and thus the form, valid.
 		input.simulate('change', { target: { value: 'Joe' } })
 		form.simulate('submit')
+		expect(getValues(store.getState())).to.eql({ form: { contact: { firstName: 'Joe' } } })
 		expect(onSave).to.have.been.called
 	})
 })
