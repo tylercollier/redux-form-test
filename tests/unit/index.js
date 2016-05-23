@@ -23,9 +23,9 @@ describe("ContactFormComponent", () => {
 		touched = false
 		error = null
 		resetForm = sinon.spy()
-		onSave = sinon.stub()
-		onSave.returns(Promise.resolve())
 		onSaveResponse = Promise.resolve()
+		onSave = sinon.stub()
+		onSave.returns(onSaveResponse)
 	})
 	const buildSubject = () => {
 		const props = {
