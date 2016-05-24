@@ -13,11 +13,11 @@ class ContactForm extends Component {
 		const submitClassName = "glyphicon glyphicon-" + (this.props.submitting ? "refresh glyphicon-spin" : 'ok')
 
 		return (
-			<form onSubmit={this.props.handleSubmit(this.mySubmit.bind(this))}>
+			<form>
 				<label>First name</label>
 				<input {...firstName}/>
 				{firstName.touched && firstName.error && <div className='help-block'>{firstName.error}</div>}
-				<button type="submit">
+				<button onClick={this.props.handleSubmit(this.mySubmit.bind(this))}>
 					<i className={submitClassName}/> Submit
 				</button>
 			</form>

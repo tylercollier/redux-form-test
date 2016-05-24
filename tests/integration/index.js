@@ -58,7 +58,7 @@ describe("ContactFormContainer", () => {
 		// valid. Thus, we type a first name here to make the form's inputs,
 		// and thus the form, valid.
 		input.simulate('change', { target: { value: 'Joe' } })
-		form.simulate('submit')
+		subject.find('button').simulate('click')
 		expect(onSave).to.have.been.called
 	})
 })

@@ -50,7 +50,7 @@ describe("ContactFormComponent", () => {
 	// Here we show we can test asychronous actions triggered by our form.
 	it("calls resetForm after onSave", (done) => {
 		subject = buildSubject()
-		subject.find('form').simulate('submit')
+		subject.find('button').simulate('click')
 		expect(onSave).to.have.been.called
 		onSaveResponse.then(() => {
 			expect(resetForm).to.have.been.called
@@ -64,7 +64,7 @@ describe("ContactFormComponent", () => {
 		it("shows a spinner while submitting", () => {
 			submitting = true
 			subject = buildSubject()
-			const icon = subject.find('button[type="submit"]').find('i')
+			const icon = subject.find('button').find('i')
 			expect(icon).to.have.className('glyphicon-refresh glyphicon-spin')
 		})
 	})
