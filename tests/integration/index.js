@@ -51,14 +51,22 @@ describe("ContactFormContainer", () => {
 		expect(firstNameHelpBlock.text()).to.equal('Required')
 	})
 
-	it("calls onSave", () => {
+	it("does not call our onSave function because the form data is invalid", () => {
 		const form = subject.find('form')
-		const input = subject.find('input').first()
-		// Our form, when connected to Redux-Form, won't submit unless it's
-		// valid. Thus, we type a first name here to make the form's inputs,
-		// and thus the form, valid.
-		input.simulate('change', { target: { value: 'Joe' } })
 		subject.find('button').simulate('click')
-		expect(onSave).to.have.been.called
+		expect(onSave).to.not.have.been.called
+	})
+	
+	context("when form data is valid", () => {
+		it("calls onSave", () => {
+			const form = subject.find('form')
+			const input = subject.find('input').first()
+			// Our form, when connected to Redux-Form, won't submit unless it's
+			// valid. Thus, we type a first name here to make the form's inputs,
+			// and thus the form, valid.
+			input.simulate('change', { target: { value: 'Joe' } })
+			subject.find('button').simulate('click')
+			expect(onSave).to.have.been.called
+		})
 	})
 })
