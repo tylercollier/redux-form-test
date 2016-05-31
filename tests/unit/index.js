@@ -3,12 +3,10 @@ import React from 'react'
 
 // See README for discussion of chai, enzyme, and sinon
 import chai, { expect } from 'chai'
-import sinonChai from 'sinon-chai'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import sinon from 'sinon'
 
-chai.use(sinonChai)
 chai.use(chaiEnzyme())
 
 // In this file we're doing unit testing of our component, which means it

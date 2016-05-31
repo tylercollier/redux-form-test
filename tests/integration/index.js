@@ -2,14 +2,9 @@ import ContactFormContainer from '../../app/ContactFormContainer'
 import React from 'react'
 
 // See README for discussion of chai, enzyme, and sinon
-import chai, { expect } from 'chai'
-import sinonChai from 'sinon-chai'
+import { expect } from 'chai'
 import { mount } from 'enzyme'
-import chaiEnzyme from 'chai-enzyme'
 import sinon from 'sinon'
-
-chai.use(sinonChai)
-chai.use(chaiEnzyme())
 
 // In this file we're doing an integration test. Thus we need to hook up our
 // form component to Redux and Redux-Form. To do that, we need to create the
