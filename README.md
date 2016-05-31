@@ -33,7 +33,7 @@ There is no site! These are just tests! The "contact form" component is triviall
 
 ## Technologies
 
-These tests are written to run with the mocha test framework. I use the chai assertion library to make it more readable. (Additionally, chai-enzyme and sinon-chai are also used.) But what I'm trying to show off is testing Redux-Form, so of course you could use a different test framework.
+These tests are written to run with the mocha test framework. I use the chai assertion library to make it more readable; `chai-enzyme` is also used. But what I'm trying to show off is testing Redux-Form, so of course you could use a different test framework.
 
 Similarly, I'm using [Enzyme](http://airbnb.io/enzyme/), which is far better than the basic [Facebook React Test Utils](https://facebook.github.io/react/docs/test-utils.html). Enzyme is more convenient and intuitive to write, easier to read, and more powerful with great debug helpers. I'm using sinon as a spy library, which is how we know if the functions we pass into our components get called properly. You could exchange sinon for another spy library.
 
