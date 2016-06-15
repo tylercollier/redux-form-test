@@ -54,6 +54,6 @@ describe("ContactFormContainer", () => {
 		// and thus the form, valid.
 		input.simulate('change', { target: { value: 'Joe' } })
 		form.simulate('submit')
-		expect(onSave).to.have.been.called
+		expect(onSave).to.not.have.been.called
 	})
 })
