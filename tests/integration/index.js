@@ -42,7 +42,8 @@ describe("ContactFormContainer", () => {
 		// will call the onBlur method supplied by Redux-Form.
 		input.simulate('blur')
 		const firstNameHelpBlock = subject.find('.help-block')
-		expect(firstNameHelpBlock).to.exist
+		// Ensure only one node is returned, otherwise our call to text() below will yell at us.
+		expect(firstNameHelpBlock).to.have.length.of(1)
 		expect(firstNameHelpBlock.text()).to.equal('Required')
 	})
 
@@ -54,6 +55,6 @@ describe("ContactFormContainer", () => {
 		// and thus the form, valid.
 		input.simulate('change', { target: { value: 'Joe' } })
 		form.simulate('submit')
-		expect(onSave).to.have.been.called
+		expect(onSave.callCount).to.equal(1)
 	})
 })

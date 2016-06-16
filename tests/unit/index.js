@@ -49,9 +49,9 @@ describe("ContactFormComponent", () => {
 	it("calls resetForm after onSave", (done) => {
 		subject = buildSubject()
 		subject.find('form').simulate('submit')
-		expect(onSave).to.have.been.called
+		expect(onSave.callCount).to.equal(1)
 		onSaveResponse.then(() => {
-			expect(resetForm).to.have.been.called
+			expect(resetForm.callCount).to.equal(1)
 			done()
 		})
 	})
