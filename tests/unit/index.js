@@ -80,4 +80,21 @@ describe("ContactFormComponent", () => {
 			expect(firstNameHelpBlock.text()).to.equal('Required')
 		})
 	})
+
+	class Component extends React.Component {
+		render () {
+			return (
+				<div className='component' />
+			)
+		};
+	}
+
+	describe('Component', function () {
+		it.only('can be mounted with the required class', function () {
+			const component = shallow(
+				<Component />
+			);
+			expect(component).to.have.className('component');
+		});
+	})
 })
