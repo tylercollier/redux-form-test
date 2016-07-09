@@ -90,9 +90,29 @@ describe("ContactFormComponent", () => {
 	}
 
 	describe('Component', function () {
-		it.only('can be mounted with the required class', function () {
+		it('can be mounted with the required class', function () {
 			const component = shallow(
 				<Component />
+			);
+			expect(component).to.have.className('component');
+		});
+	})
+
+	const HOC = comp => {
+		return class myHOC extends React.Component {
+			render() {
+				return (
+					<comp/>
+				)
+			}
+		}
+	}
+	const HocComponent = HOC(Component)
+
+	describe('Component', function () {
+		it('can be mounted with the required class', function () {
+			const component = shallow(
+				<HocComponent />
 			);
 			expect(component).to.have.className('component');
 		});
