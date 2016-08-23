@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react'
 
 class ContactForm extends Component {
 	mySubmit(values) {
+		console.log('Github issue #4: Show that we can access form values during unit test / shallow rendering.')
+		console.log('from mySubmit handler: Values:', values)
 		this.props.onSave(values).then(() => {
 			this.props.resetForm()
 		})

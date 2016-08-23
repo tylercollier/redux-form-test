@@ -80,4 +80,33 @@ describe("ContactFormComponent", () => {
 			expect(firstNameHelpBlock.text()).to.equal('Required')
 		})
 	})
+
+	// See: https://github.com/tylercollier/redux-form-test/issues/4
+	it.only("has access to form values in supplied submit handler in props", (done) => {
+		subject = buildSubject()
+		// Note: In the following line, using Enzyme's simulate(), we are
+		// responsible for supplying what values are passed in the event, as
+		// in the form submit. In real React, this would be a SyntheticEvent
+		// object. See: https://facebook.github.io/react/docs/events.html. If
+		// we used a SyntheticEvent in this test, our 'handleSubmit' function
+		// (passed as a prop to ContactFormComponent) would need to do what
+		// Redux-Form does: read the SyntheticEvent object, look at the form:
+		// turn its inputs into a javascript object of keys and values from
+		// our fields (e.g. { firstName: 'some value' }). A much easier way to
+		// do this is to simply cheat: we pass the form values directly to
+		// simulate(). I think it's perfectly valid for unit testing.
+		subject.find('form').simulate('submit', { mykey: 'myvalue' })
+		expect(onSave.callCount).to.equal(1)
+		onSaveResponse.then(() => {
+			// This isn't really the proof I'm trying to show off for github
+			// issue #4. That proof is in the component itself. But here is
+			// further proof that the values are going through. In case you're
+			// not familiar, 'args' is from sinon, and it returns an array of
+			// the number of calls, and each call is an array of arguments. So
+			// here we look for the first call and its first (and only)
+			// argument.
+			expect(onSave.args[0][0]).to.eql({ mykey: 'myvalue' })
+			done()
+		}).catch(done)
+	})
 })
