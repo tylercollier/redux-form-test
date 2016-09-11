@@ -2,13 +2,17 @@
 
 This project shows how to do unit and integrations tests with Redux-Form.
 
+## For redux-form version 6
+
+This project uses redux-form version 6. To see test examples for redux-form 5, see this tag: [redux-form-5][https://www.github.com/tylercollier/redux-form-test/tree/redux-form-5].
+
 ## Basic premise
 
 Ideally you should do both **unit tests** and **integration tests** with your form components.
 
 First, make sure you understand the general idea of testing connected components from [the Redux "Writing Tests" doc](http://redux.js.org/docs/recipes/WritingTests.html). Search for the section called **Connected Components**.
 
-So, you should have a "dumb" (aka presentational) React component that is separate from any connection to Redux and Redux-Form. It takes props. That's it. That's your **unit tests**.
+So, you should have a "dumb" (aka presentational) React component that is separate from any connection to Redux and Redux-Form. It takes props. That's it. You test that with **unit tests**.
 
 You should also have a container React component that connects the presentational component to Redux and Redux-Form. To test this, your test becomes an **integration test** because you're hooking up your presentational component to redux's store. You're integrating them.
 
@@ -29,7 +33,12 @@ $ npm run test
 
 ## How to run the site
 
-There is no site! These are just tests! The "contact form" component is trivially simple: It has a first name label, an input for the first name, and a submit button.
+```
+$ npm install
+$ npm run dev
+```
+
+This will run webpack-dev-server, which defaults to port 8080, so you can visit http://localhost:8080. The site is trivial, and exists just to give you a visual of what's happening.
 
 ## Technologies
 
