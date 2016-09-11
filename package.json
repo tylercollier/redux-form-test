@@ -4,7 +4,7 @@
   "description": "Showing some unit and integration tests for redux-form",
   "keywords": [],
   "scripts": {
-    "webpack": "node_modules/.bin/webpack",
+    "dev": "node_modules/.bin/webpack-dev-server",
     "test": "node_modules/.bin/mocha -w --compilers js:babel-core/register tests/*"
   },
   "devDependencies": {
@@ -19,11 +19,13 @@
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.2",
     "sinon": "^1.17.4",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.15.1"
   },
   "dependencies": {
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
+    "react-hot-loader": "^3.0.0-beta.3",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "redux-form": "^5.2.3"

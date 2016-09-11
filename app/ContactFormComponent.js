@@ -14,9 +14,13 @@ class ContactForm extends Component {
 
 		return (
 			<form onSubmit={this.props.handleSubmit(this.mySubmit.bind(this))}>
+				<h1>Contact Form</h1>
 				<label>First name</label>
+				{' '}
 				<input {...firstName}/>
-				{firstName.touched && firstName.error && <div className='help-block'>{firstName.error}</div>}
+				{' '}
+				{firstName.touched && firstName.error && <span className='help-block'>{firstName.error}</span>}
+				<p></p>
 				<button type="submit">
 					<i className={submitClassName}/> Submit
 				</button>
