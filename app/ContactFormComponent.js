@@ -1,6 +1,6 @@
 import redux from 'redux'
 import React, { Component, PropTypes } from 'react'
-import { Field } from 'redux-form'
+import { Field, SubmissionError } from 'redux-form'
 
 export const renderTextInput = field => {
 	const { input, label, type, meta: { touched, error } } = field
@@ -20,6 +20,8 @@ class ContactForm extends Component {
 		return this.props.onSave(values).then(response => {
 			this.props.reset()
 			return response
+		}).catch(error => {
+			throw new SubmissionError(error)
 		})
 	}
 

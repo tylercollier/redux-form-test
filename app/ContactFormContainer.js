@@ -14,7 +14,9 @@ let ContactFormContainer = reduxForm({
 const mapStateToProps = null
 const mapDispatchToProps = dispatch => {
 	return {
-		// Note: we aren't actually doing anything with this. The ContactForm component has a propType, so I'm showing where it might come from.
+		// Note: we aren't actually doing anything with this. The ContactForm
+		// component has an onSave propType, so I'm showing where it might
+		// come from.
 		onSave: contactFormValues => {
 			console.log('Now running onSave action')
 			return new Promise(resolve => {

@@ -20,16 +20,9 @@ To make this separation clear, I named the presentational component `ContactForm
 
 ## What should I look at?
 
-This project is very simple. Take a look at the `tests` directory and follow the code into the `app` directory. I recommend you look at the `tests/unit` directory first, and then `tests/integration`, because the former is simpler and is a basis for the latter.
+This project is very simple. First, run the site to see what the form looks like. Then view the tests. Take a look at the `tests` directory and follow the code into the `app` directory. I recommend you look at the `tests/unit` directory first, and then `tests/integration`, because the former is simpler and is a basis for the latter.
 
 The test files are commented with specific pointers.
-
-## How to run the tests
-
-```
-$ npm install
-$ npm run test
-```
 
 ## How to run the site
 
@@ -39,6 +32,15 @@ $ npm run dev
 ```
 
 This will run webpack-dev-server, which defaults to port 8080, so you can visit http://localhost:8080. The site is trivial, and exists just to give you a visual of what's happening.
+
+**TODO:** Fix hot reloading. I installed react-hot-loader 3.0.0-beta.3 because of a warning I received when using the react-hot loader in babel, which said to put `react-hot-loader/babel` in the `plugins` section of the `.babelrc` file, but I haven't done the rest of the wiring yet.
+
+## How to run the tests
+
+```
+$ npm install
+$ npm run test
+```
 
 ## Technologies
 
