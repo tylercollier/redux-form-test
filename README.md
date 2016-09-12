@@ -4,7 +4,7 @@ This project shows how to do unit and integrations tests with Redux-Form.
 
 ## For redux-form version 6
 
-This project uses redux-form version 6. To see test examples for redux-form 5, see this tag: [redux-form-5][https://www.github.com/tylercollier/redux-form-test/tree/redux-form-5].
+This project now uses redux-form version 6. To see test examples for redux-form 5, see this tag: [redux-form-5](https://www.github.com/tylercollier/redux-form-test/tree/redux-form-5).
 
 ## Basic premise
 

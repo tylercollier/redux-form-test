@@ -14,7 +14,7 @@ chai.use(chaiEnzyme())
 // really has nothing to do with Redux-Form at this point. We can pass in our
 // own props (e.g. `submitting`) and make sure our form renders as we expect.
 
-describe.only("ContactFormComponent", () => {
+describe("ContactFormComponent", () => {
 	let subject = null
 	let submitting, touched, error, reset, onSave, onSaveResponse, handleSubmit
 	beforeEach(() => {
