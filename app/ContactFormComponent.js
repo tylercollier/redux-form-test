@@ -2,15 +2,18 @@ import redux from 'redux'
 import React, { Component, PropTypes } from 'react'
 import { Field } from 'redux-form'
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-	<div>
-		<label>{label}</label>
-		{' '}
-		<input {...input}/>
-		{' '}
-		{touched && error && <span className='help-block'>{error}</span>}
-	</div>
-)
+export const renderTextInput = field => {
+	const { input, label, type, meta: { touched, error } } = field
+	return (
+		<div>
+			<label>{label}</label>
+			{' '}
+			<input {...input} type={type}/>
+			{' '}
+			{touched && error && <span className='help-block'>{error}</span>}
+		</div>
+	)
+}
 
 class ContactForm extends Component {
 	mySubmit(values) {
@@ -24,7 +27,7 @@ class ContactForm extends Component {
 		return (
 			<form onSubmit={this.props.handleSubmit(this.mySubmit.bind(this))}>
 				<h1>Contact Form</h1>
-				<Field name="firstName" component={renderField} type="text" label="First name"/>
+				<Field name="firstName" component={renderTextInput} type="text" label="First name"/>
 				<p></p>
 				<button type="submit" disabled={this.props.submitting}>
 					{this.props.submitting ? 'Submitting (takes 1 s)' : 'Submit'}
