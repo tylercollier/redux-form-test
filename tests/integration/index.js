@@ -54,9 +54,6 @@ describe("ContactFormContainer", () => {
 		expect(firstNameHelpBlock.text()).to.equal('Required')
 	})
 
-	// Reminder: this test fails because our stub of onSave is overridden now
-	// by the ContactFormContainer's mapDispatchToProps. This shows that the
-	// test as it existed before wasn't realistic enough.
 	it("calls onSave", () => {
 		const form = subject.find('form')
 		const input = subject.find('input').first()
