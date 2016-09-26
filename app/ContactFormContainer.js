@@ -14,9 +14,10 @@ let ContactFormContainer = reduxForm({
 const mapStateToProps = null
 const mapDispatchToProps = dispatch => {
 	return {
-		// Note: we aren't actually doing anything with this. The ContactForm
-		// component has an onSave propType, so I'm showing where it might
-		// come from.
+		// This is just an example of an action that your submit handler might
+		// fire. You can see I'm dispatching an action, just for example sake
+		// to make it more realistic, but there's not even a reducer for the
+		// action.
 		onSave: contactFormValues => {
 			console.log('Now running onSave action')
 			return new Promise(resolve => {
@@ -29,7 +30,9 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
+const mergeProps = (stateProps, dispatchProps, ownProps) =>
+	Object.assign({}, stateProps, dispatchProps, ownProps)
 
-ContactFormContainer = connect(mapStateToProps, mapDispatchToProps)(ContactFormContainer)
+ContactFormContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(ContactFormContainer)
 
 export default ContactFormContainer

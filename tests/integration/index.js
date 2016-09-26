@@ -57,7 +57,7 @@ describe("ContactFormContainer", () => {
 	// Reminder: this test fails because our stub of onSave is overridden now
 	// by the ContactFormContainer's mapDispatchToProps. This shows that the
 	// test as it existed before wasn't realistic enough.
-	it.skip("calls onSave", () => {
+	it("calls onSave", () => {
 		const form = subject.find('form')
 		const input = subject.find('input').first()
 		// Our form, when connected to Redux-Form, won't submit unless it's

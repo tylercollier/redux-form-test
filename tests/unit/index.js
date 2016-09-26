@@ -121,7 +121,8 @@ describe("ContactFormComponent", () => {
 // would create a similar function for each type of component you need to
 // render. If you look in renderTextInput, it outputs an <input/>, but you
 // would need a different method if you wanted to output a <select/>,
-// <textarea>, etc.
+// <textarea>, or something more complex like a composite component with many
+// parts, e.g. if you're using react-bootstrap.
 describe('renderTextInput', () => {
 	let subject
 	context("when in an error state", () => {

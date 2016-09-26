@@ -20,7 +20,7 @@ To make this separation clear, I named the presentational component `ContactForm
 
 ## What should I look at?
 
-This project is very simple. First, run the site to see what the form looks like. Then view the tests. Take a look at the `tests` directory and follow the code into the `app` directory. I recommend you look at the `tests/unit` directory first, and then `tests/integration`, because the former is simpler and is a basis for the latter.
+This project is very simple. First, run the site (described below) to see what the form looks like. Then view the tests. Take a look at the `tests` directory and follow the code into the `app` directory. I recommend you look at the `tests/unit` directory first, and then `tests/integration`, because the former is simpler and is a basis for the latter.
 
 The test files are commented with specific pointers.
 
