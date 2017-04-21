@@ -1,3 +1,4 @@
+import React from 'react'
 import { expect } from "chai";
 import { shallow, mount, unmount } from "enzyme";
 import sinon from "sinon";
@@ -6,16 +7,17 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 
-import reducers from "../../../src/reducers";
+// import reducers from "../../../src/reducers";
+const reducers = () => ({ auth: {} });
 import ConfirmationContainer, {
   ConfirmationComponent,
   renderField
-} from "../../../src/components/auth/confirmation";
+} from "../../app/confirmation";
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
-describe("Container", () => {
+describe.only("Container", () => {
   let sendActivationEmail, resetAuthError, props, errorMessage, subject;
   beforeEach(() => {
     sendActivationEmail = sinon.spy();
