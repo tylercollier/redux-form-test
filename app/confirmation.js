@@ -1,16 +1,26 @@
-import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
-import { sendActivationEmail, resetAuthError } from '../../actions';
+import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
+import { sendActivationEmail, resetAuthError } from "../../actions";
 
-export const renderField = ({ input, label, type, meta: { touched, error } }) => (
+export const renderField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error }
+}) => (
   <fieldset className="form-group">
-    <div className={touched && error ? 'has-danger' : ''}>
+    <div className={touched && error ? "has-danger" : ""}>
       <p>Resend Confirmation Instructions</p>
-      <input {...input} placeholder={label} type={type} className="form-control"/>
+      <input
+        {...input}
+        placeholder={label}
+        type={type}
+        className="form-control"
+      />
       {touched && error && <span className="error">{error}</span>}
     </div>
   </fieldset>
-)
+);
 
 export class Confirmation extends Component {
   componentWillUnmount() {
@@ -27,7 +37,7 @@ export class Confirmation extends Component {
         <div className="alert alert-danger">
           <strong>Oops!</strong> {this.props.errorMessage}
         </div>
-      )
+      );
     }
   }
 
@@ -54,23 +64,28 @@ function validate(formProps) {
   const errors = {};
 
   if (!formProps.email) {
-    errors.email = 'Please enter an email';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formProps.email)) {
-    errors.email = 'Please enter a valid email address';
+    errors.email = "Please enter an email";
+  } else if (
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formProps.email)
+  ) {
+    errors.email = "Please enter a valid email address";
   }
 
   return errors;
 }
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.error }
+  return { errorMessage: state.auth.error };
 }
 
 Confirmation = reduxForm({
-  form: 'confirmation',
+  form: "confirmation",
   validate
 })(Confirmation);
 
-Confirmation = connect(mapStateToProps, { sendActivationEmail, resetAuthError })(Confirmation);
+Confirmation = connect(mapStateToProps, {
+  sendActivationEmail,
+  resetAuthError
+})(Confirmation);
 
 export default Confirmation;
