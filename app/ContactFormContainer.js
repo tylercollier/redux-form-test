@@ -30,10 +30,8 @@ const mapDispatchToProps = dispatch => {
 		}
 	}
 }
-// We'll pass this mergeProps parameter to redux's connect is what allows us
-// to override as we please during testing. In this container,
-// mapDispatchToProps provides an onSave prop to our component, but we want to
-// override onSave during testing (e.g. so we know if it's called or not).
+// We'll pass this mergeProps parameter to redux's connect. It's what allows us
+// to override as we please during testing.
 const mergeProps = (stateProps, dispatchProps, ownProps) =>
 	Object.assign({}, stateProps, dispatchProps, ownProps)
 
