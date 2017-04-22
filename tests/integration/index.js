@@ -13,14 +13,6 @@ import { reducer as formReducer } from 'redux-form'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
-// To test the entire component, we're going to use Enzyme's `mount` method,
-// which is the opposite of shallow rendering. To use `mount`, we need to have
-// a DOM, so we use jsdom. You can alternatively run these tests in a browser
-// to get a DOM, but that's more complicated to set up and usually slower.
-import jsdom from 'jsdom'
-global.document = jsdom.jsdom('<!doctype html><html><body></body></html>')
-global.window = document.defaultView
-
 describe("ContactFormContainer", () => {
 	let store
 	let onSave
