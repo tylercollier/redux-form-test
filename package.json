@@ -5,7 +5,7 @@
   "keywords": [],
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server",
-    "test": "node_modules/.bin/mocha -w --compilers js:babel-core/register tests/*"
+    "test": "node_modules/.bin/mocha -w --compilers js:babel-core/register tests/setup.js tests/*"
   },
   "devDependencies": {
     "babel-core": "^6.9.0",
